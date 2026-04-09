@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tCAAP — Brand Identity Kit, Tier 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A1628;
+    --navy-2: #111E35;
+    --steel: #2B4C7E;
+    --gold: #E8A317;
+    --paper: #FAFAF7;
+    --charcoal: #1F2937;
+    --mist: #94A3B8;
+    --mist-2: #CBD5E1;
+    --rule: rgba(203,213,225,0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--navy);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 80px 48px; }
+  @media (max-width: 720px) { .wrap { padding: 56px 24px; } }
+
+  h1, h2, h3, h4, .display { font-family: 'Archivo', sans-serif; letter-spacing: -0.01em; }
+  h1 {
+    font-weight: 900;
+    font-size: clamp(40px, 6.5vw, 76px);
+    line-height: 0.98;
+    margin: 0 0 24px;
+    letter-spacing: -0.025em;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: clamp(26px, 3.2vw, 38px);
+    line-height: 1.1;
+    margin: 0 0 8px;
+    letter-spacing: -0.015em;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    color: var(--paper);
+  }
+  h4 {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+  }
+  p { margin: 0 0 16px; color: var(--mist-2); max-width: 68ch; }
+  p.lead { font-size: 19px; line-height: 1.55; color: var(--paper); max-width: 60ch; }
+  strong { color: var(--paper); font-weight: 600; }
+  .muted { color: var(--mist); }
+  code, .mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--mist-2); }
+
+  section { padding: 64px 0; border-top: 1px solid var(--rule); }
+  section:first-of-type { border-top: none; padding-top: 0; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .cover {
+    min-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 0 80px;
+  }
+  .cover .mark-display { margin-bottom: 48px; }
+  .cover .mark-display svg { width: 160px; height: auto; display: block; }
+  .cover .meta {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+  .cover .meta div { min-width: 140px; }
+  .cover .meta span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--mist);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .cover .meta strong { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 15px; }
+
+  .logo-card {
+    background: var(--navy-2);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 56px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+  }
+  .logo-card.paper { background: var(--paper); color: var(--charcoal); }
+  .logo-card svg { max-width: 100%; height: auto; }
+  .logo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  @media (max-width: 720px) { .logo-row { grid-template-columns: 1fr; } }
+  .logo-caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mist);
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .swatch {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .swatch-color { height: 140px; }
+  .swatch-body { padding: 20px; background: var(--navy-2); }
+  .swatch-name {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--paper);
+    margin-bottom: 10px;
+  }
+  .swatch-vals { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mist); line-height: 1.7; }
+  .swatch-vals div { display: flex; justify-content: space-between; }
+  .swatch-role {
+    font-size: 11px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .type-specimen { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+  .type-specimen:last-child { border-bottom: none; }
+  .type-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--mist);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .specimen-big { font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 72px; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .specimen-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.6; color: var(--mist-2); max-width: 60ch; }
+  .type-scale { display: grid; gap: 12px; margin-top: 24px; }
+  .type-scale div { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+  .type-scale .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--mist); min-width: 100px; }
+  @media (max-width: 720px) { .specimen-big { font-size: 48px; } }
+
+  .rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  @media (max-width: 720px) { .rules { grid-template-columns: 1fr; } }
+  .rule-card {
+    padding: 24px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--navy-2);
+  }
+  .rule-card.do h4 { color: #86efac; }
+  .rule-card.dont h4 { color: #fca5a5; }
+  .rule-card p { font-size: 14px; margin: 0; }
+
+  .light {
+    background: var(--paper);
+    color: var(--charcoal);
+    margin: 64px -48px -80px;
+    padding: 80px 48px;
+    border-top: 1px solid #e5e5e0;
+  }
+  @media (max-width: 720px) { .light { margin: 64px -24px -56px; padding: 56px 24px; } }
+  .light h2 { color: var(--charcoal); }
+  .light h3 { color: var(--charcoal); }
+  .light h4 { color: var(--steel); }
+  .light p { color: #475569; }
+  .light .eyebrow { color: var(--steel); }
+  .light .wrap-inner { max-width: 944px; margin: 0 auto; }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .specs-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .specs-table td:first-child { color: var(--mist); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; width: 40%; }
+  .specs-table td:last-child { color: var(--paper); }
+
+  .clearspace-demo {
+    background: var(--navy-2);
+    padding: 60px 40px;
+    border: 1px solid var(--rule);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .clearspace-demo svg { max-width: 440px; width: 100%; height: auto; }
+
+  .footer {
+    padding: 48px 0 24px;
+    border-top: 1px solid var(--rule);
+    margin-top: 48px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--mist);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <section class="cover">
+    <div class="mark-display">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-label="tCAAP primary mark">
+        <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FAFAF7"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FAFAF7"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+      </svg>
+    </div>
+    <span class="eyebrow">Brand Identity Kit · Tier 1 · v1.0</span>
+    <h1>The Cebu Arts<br>&amp; Animation Protocol</h1>
+    <p class="lead">Bridging the gap between talent and opportunity.</p>
+    <div class="meta">
+      <div><span>Prepared for</span><strong>tCAAP Leadership</strong></div>
+      <div><span>Imprint</span><strong>Core Identity System</strong></div>
+      <div><span>Scope</span><strong>Logo · Color · Type</strong></div>
+      <div><span>Status</span><strong>Foundation Build</strong></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">01 · Positioning</span>
+    <h2>A venture studio, not a collective.</h2>
+    <p class="lead">tCAAP is the venture studio building Cebu into the Philippines' arts and animation capital. It bridges local creative talent to global opportunity through a full ecosystem: education, enterprise, events, creative media services, and original content.</p>
+
+    <h3 style="margin-top:48px">What the brand has to carry</h3>
+    <p>tCAAP sits in decks next to DTI, CIE British School, Core Works Force, Kasagi Labo, and partner studios. The mark has to hold its own in that company. It cannot look like an arts club, a student project, or a streaming service. It has to read as infrastructure. As a platform. As something institutional enough for government, disciplined enough for Japanese and Korean clients, and warm enough for the artists it exists to serve.</p>
+
+    <h3 style="margin-top:40px">Brand personality</h3>
+    <table class="specs-table">
+      <tr><td>Voice</td><td>Confident, direct, ecosystem-minded. Speaks in commitments, not aspirations.</td></tr>
+      <tr><td>Posture</td><td>Institutional but creative. Serious without being cold.</td></tr>
+      <tr><td>Position versus peers</td><td>The only player with the full ecosystem: Township, Education Partner, Production Events, Creative Media Service, Original Content. Everyone else does one or two. tCAAP does all five.</td></tr>
+      <tr><td>Cebu as identity</td><td>Core pillar. Cebu is not a location tag, it is the thesis. The brand should feel grounded in Cebu without becoming a tourism visual.</td></tr>
+      <tr><td>What to avoid</td><td>Heritage pastiche, tropical clichés, generic creative gradients, anime mascots, tech startup neon.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <span class="eyebrow">02 · Primary Mark</span>
+    <h2>The Gateway.</h2>
+    <p class="lead">An institutional archway containing a five-step ascent. The outer form is the gateway: tCAAP as the threshold between local talent and global opportunity. Inside the gateway, a staircase climbs from the ground floor on the left to a gold beacon at the top right. Each step is one of the five tCAAP pillars. The climb is the brand thesis made visible.</p>
+
+    <div class="logo-card" style="min-height:380px; margin-top:32px">
+      <svg viewBox="0 0 240 240" width="320" xmlns="http://www.w3.org/2000/svg" aria-label="tCAAP primary mark, full size">
+        <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FAFAF7"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FAFAF7"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+      </svg>
+    </div>
+    <p class="logo-caption">Primary mark · on navy</p>
+
+    <h3 style="margin-top:56px">What the mark means</h3>
+    <p>Every element is load-bearing. Read the mark out loud, element by element, and the brand story tells itself.</p>
+
+    <h4 style="margin-top:36px">The archway</h4>
+    <p>The outer shape is an institutional threshold. A gateway, a doorway. It says tCAAP is the doorway: not a school, not a studio, not a collective, but a threshold organization that exists so people pass through it and come out the other side changed. The arched form carries institutional weight without slipping into corporate blandness. It reads cleanly whether it lives next to DTI's seal or next to Kasagi Labo's wordmark. It is the frame that holds everything else.</p>
+
+    <h4 style="margin-top:32px">The staircase</h4>
+    <p>Inside the archway, a staircase climbs from bottom-left to top-right. This is where the brand story happens. The bottom-left is the ground floor: where a Filipino artist or animator begins, untrained or undiscovered or underpaid, with no platform and no path. The top-right is the destination: global opportunity, a real career, an international client, a place in the industry. The space between those two points is the gap the tagline promises to bridge, and the staircase is the literal act of bridging it. It is the one thing Kasagi Labo, Core Works Force, and every competing studio cannot claim inside a mark: a visible commitment to the journey.</p>
+
+    <h4 style="margin-top:32px">The five steps</h4>
+    <p>The steps are not five for design reasons. They are the five tCAAP revenue pillars in ascending order: Arts and Animation Township, Artist Collective Enterprises, Production Events, Creative Media Service, and Original Content Production. Each step is one program. Each program is one rung in the climb. Someone who enters tCAAP at the Township, trains in the Collective, performs at Events, crosses into Media Services, and produces Original Content has walked every step in the mark. The logo encodes the business model.</p>
+
+    <h4 style="margin-top:32px">The gold beacon</h4>
+    <p>At the top of the staircase, a single rectangle of Signal Gold marks the destination. It is the only non-neutral color in the entire brand system, which means it carries all the emphasis. It sits above the final step, naming where the journey ends. Signal Gold also does quiet cultural work: warm, echoing Filipino heritage without flag imagery or tropical tourism clichés, and giving the whole institutional grey-and-navy system a pulse of humanity.</p>
+
+    <h4 style="margin-top:32px">What the mark refuses</h4>
+    <p>The absences are as deliberate as the presences. The mark has no characters or mascots, because tCAAP is not an animation studio but the institution that feeds them. No gradients or chrome, because the previous CP logo had all three and aged immediately. No cultural ornaments, no Spanish colonial arches, no Sinulog colors, no sun rays, no beach imagery, because tCAAP is infrastructure, not tourism. No embedded wordmark, because the icon must stand alone on favicons, merchandise, embroidery, and stamps. Every absence is a decision.</p>
+
+    <div style="margin-top:56px; padding: 36px 40px; border-left: 3px solid var(--gold); background: var(--navy-2); border-radius: 0 2px 2px 0;">
+      <span class="eyebrow" style="margin-bottom: 18px; display: block">The one-line version · for pitching</span>
+      <p style="font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.45; color: var(--paper); max-width: 60ch; margin: 0; font-style: italic;">The archway is tCAAP. The staircase inside is our five programs. The gold at the top is the opportunity we get our people to. Everything else is just the climb.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">03 · Lockups</span>
+    <h2>Primary lockups.</h2>
+    <p>Three sanctioned lockups. Horizontal is the default. Stacked is for vertical space and high-presence applications. Tagline lockup is reserved for first-impression contexts only: pitch deck cover, website hero, letterhead masthead.</p>
+
+    <div class="logo-card" style="margin-top:32px">
+      <svg viewBox="0 0 720 200" width="100%" style="max-width:640px" xmlns="http://www.w3.org/2000/svg" aria-label="Horizontal lockup">
+        <g transform="translate(20,30) scale(0.58)">
+          <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FAFAF7"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FAFAF7"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+        </g>
+        <line x1="170" y1="40" x2="170" y2="160" stroke="#CBD5E1" stroke-width="1" opacity="0.3"/>
+        <text x="190" y="96" font-family="Archivo" font-weight="800" font-size="40" fill="#FAFAF7" letter-spacing="-1.2">tCAAP</text>
+        <text x="190" y="128" font-family="Inter" font-weight="400" font-size="12" fill="#94A3B8" letter-spacing="1.2">THE CEBU ARTS &amp; ANIMATION PROTOCOL</text>
+      </svg>
+    </div>
+    <p class="logo-caption">Horizontal lockup · default application</p>
+
+    <div class="logo-row" style="margin-top:32px">
+      <div>
+        <div class="logo-card">
+          <svg viewBox="0 0 280 340" width="100%" style="max-width:220px" xmlns="http://www.w3.org/2000/svg" aria-label="Stacked lockup">
+            <g transform="translate(65,20) scale(0.62)">
+              <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FAFAF7"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FAFAF7"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+            </g>
+            <line x1="60" y1="178" x2="220" y2="178" stroke="#CBD5E1" stroke-width="1" opacity="0.3"/>
+            <text x="140" y="228" font-family="Archivo" font-weight="800" font-size="50" fill="#FAFAF7" text-anchor="middle" letter-spacing="-1.6">tCAAP</text>
+            <text x="140" y="264" font-family="Inter" font-weight="400" font-size="10" fill="#94A3B8" text-anchor="middle" letter-spacing="1.2">THE CEBU ARTS &amp; ANIMATION</text>
+            <text x="140" y="280" font-family="Inter" font-weight="400" font-size="10" fill="#94A3B8" text-anchor="middle" letter-spacing="1.2">PROTOCOL</text>
+          </svg>
+        </div>
+        <p class="logo-caption">Stacked lockup · vertical space</p>
+      </div>
+
+      <div>
+        <div class="logo-card">
+          <svg viewBox="0 0 280 340" width="100%" style="max-width:220px" xmlns="http://www.w3.org/2000/svg" aria-label="Tagline lockup">
+            <g transform="translate(70,16) scale(0.58)">
+              <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FAFAF7"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FAFAF7"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+            </g>
+            <text x="140" y="210" font-family="Archivo" font-weight="800" font-size="44" fill="#FAFAF7" text-anchor="middle" letter-spacing="-1.3">tCAAP</text>
+            <text x="140" y="240" font-family="Inter" font-weight="400" font-size="9" fill="#94A3B8" text-anchor="middle" letter-spacing="1.1">THE CEBU ARTS &amp; ANIMATION PROTOCOL</text>
+            <line x1="70" y1="262" x2="210" y2="262" stroke="#E8A317" stroke-width="1"/>
+            <text x="140" y="290" font-family="Inter" font-weight="500" font-style="italic" font-size="11" fill="#E8A317" text-anchor="middle">Bridging talent and opportunity.</text>
+          </svg>
+        </div>
+        <p class="logo-caption">Tagline lockup · first impression only</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">04 · Monochrome &amp; Reversed</span>
+    <h2>Single-color treatments.</h2>
+    <p>The mark must survive every printing condition, from single-color silkscreen to faxed documents to embroidery. Four monochrome treatments cover every real-world context. The gold accent drops out in any single-color application.</p>
+
+    <div class="logo-row" style="margin-top:32px">
+      <div>
+        <div class="logo-card">
+          <svg viewBox="0 0 240 240" width="160" xmlns="http://www.w3.org/2000/svg" aria-label="White on navy">
+            <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FAFAF7"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FAFAF7"/>
+          </svg>
+        </div>
+        <p class="logo-caption">White on navy · mono reversed</p>
+      </div>
+      <div>
+        <div class="logo-card paper">
+          <svg viewBox="0 0 240 240" width="160" xmlns="http://www.w3.org/2000/svg" aria-label="Navy on paper">
+            <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#0A1628"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#0A1628"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+          </svg>
+        </div>
+        <p class="logo-caption">Navy on paper · full color print</p>
+      </div>
+    </div>
+
+    <div class="logo-row">
+      <div>
+        <div class="logo-card paper" style="background:#000">
+          <svg viewBox="0 0 240 240" width="160" xmlns="http://www.w3.org/2000/svg" aria-label="All white">
+            <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FFFFFF"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <p class="logo-caption">All white · apparel, embroidery</p>
+      </div>
+      <div>
+        <div class="logo-card paper">
+          <svg viewBox="0 0 240 240" width="160" xmlns="http://www.w3.org/2000/svg" aria-label="All black">
+            <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#000000"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#000000"/>
+          </svg>
+        </div>
+        <p class="logo-caption">All black · fax, silkscreen, stamps</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">Rules for single-color use</h3>
+    <table class="specs-table">
+      <tr><td>Gold accent</td><td>Retained only on the two color versions: white mark on navy with gold beacon, or navy mark on paper with gold beacon. Drops out in all-black and all-white single-color versions.</td></tr>
+      <tr><td>No outlines</td><td>Never convert the mark to outlined or stroke-only form. The solid arch and filled staircase carry the weight.</td></tr>
+      <tr><td>No gradients</td><td>The previous CP mark used metallic gradients. This mark is flat. Flat across all applications, permanently.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <span class="eyebrow">05 · Clear Space &amp; Minimum Size</span>
+    <h2>Protection rules.</h2>
+    <p>Clear space is measured in units of the n leg width (the vertical thickness of the outer archway). One unit of clear space is required on all four sides. No typography, photography, or competing graphic elements enter the clear space zone. When in doubt, double it.</p>
+
+    <div class="clearspace-demo" style="margin-top:32px">
+      <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" aria-label="Clear space diagram">
+        <rect x="100" y="60" width="320" height="300" fill="none" stroke="#E8A317" stroke-width="1" stroke-dasharray="5 5" opacity="0.55"/>
+        <rect x="52" y="180" width="40" height="48" fill="none" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+        <text x="72" y="210" font-family="JetBrains Mono" font-size="11" fill="#94A3B8" text-anchor="middle">1x</text>
+        <rect x="428" y="180" width="40" height="48" fill="none" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+        <text x="448" y="210" font-family="JetBrains Mono" font-size="11" fill="#94A3B8" text-anchor="middle">1x</text>
+        <g transform="translate(140,90) scale(1)">
+          <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#FAFAF7"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#FAFAF7"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+        </g>
+      </svg>
+    </div>
+
+    <h3 style="margin-top:40px">Minimum sizes</h3>
+    <table class="specs-table">
+      <tr><td>Digital · primary mark</td><td>40px height minimum. Below this, the gold beacon stops reading cleanly.</td></tr>
+      <tr><td>Digital · favicon</td><td>Use the mono navy or mono white version. Gold beacon omitted for clarity at 16px.</td></tr>
+      <tr><td>Print · primary mark</td><td>12mm height minimum. Below this, use the all-black version for reproduction safety.</td></tr>
+      <tr><td>Horizontal lockup</td><td>120px or 35mm minimum width.</td></tr>
+      <tr><td>Tagline lockup</td><td>180px or 50mm minimum width. Below this threshold the tagline becomes illegible and must be dropped.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <span class="eyebrow">06 · Color System</span>
+    <h2>Four colors. No gradients.</h2>
+    <p>The palette is deliberately narrow. Deep Navy is the foundation. Paper is the canvas. Signal Gold is the single accent of warmth and opportunity. Steel Blue is a structural secondary, reserved for decorative shapes and supporting graphics, never text on navy.</p>
+
+    <div class="swatches" style="margin-top:32px">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0A1628"></div>
+        <div class="swatch-body">
+          <div class="swatch-name">Deep Navy</div>
+          <div class="swatch-vals">
+            <div><span>HEX</span><span>#0A1628</span></div>
+            <div><span>RGB</span><span>10 · 22 · 40</span></div>
+            <div><span>CMYK</span><span>100 · 85 · 55 · 75</span></div>
+          </div>
+          <div class="swatch-role">Primary foundation</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAFAF7"></div>
+        <div class="swatch-body">
+          <div class="swatch-name">Paper</div>
+          <div class="swatch-vals">
+            <div><span>HEX</span><span>#FAFAF7</span></div>
+            <div><span>RGB</span><span>250 · 250 · 247</span></div>
+            <div><span>CMYK</span><span>2 · 1 · 3 · 0</span></div>
+          </div>
+          <div class="swatch-role">Canvas · reversed text</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8A317"></div>
+        <div class="swatch-body">
+          <div class="swatch-name">Signal Gold</div>
+          <div class="swatch-vals">
+            <div><span>HEX</span><span>#E8A317</span></div>
+            <div><span>RGB</span><span>232 · 163 · 23</span></div>
+            <div><span>CMYK</span><span>5 · 35 · 100 · 0</span></div>
+          </div>
+          <div class="swatch-role">Accent · opportunity mark</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2B4C7E"></div>
+        <div class="swatch-body">
+          <div class="swatch-name">Steel Blue</div>
+          <div class="swatch-vals">
+            <div><span>HEX</span><span>#2B4C7E</span></div>
+            <div><span>RGB</span><span>43 · 76 · 126</span></div>
+            <div><span>CMYK</span><span>90 · 70 · 20 · 5</span></div>
+          </div>
+          <div class="swatch-role">Structural secondary</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px">Supporting neutrals</h3>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1F2937"></div>
+        <div class="swatch-body">
+          <div class="swatch-name">Charcoal</div>
+          <div class="swatch-vals">
+            <div><span>HEX</span><span>#1F2937</span></div>
+            <div><span>RGB</span><span>31 · 41 · 55</span></div>
+          </div>
+          <div class="swatch-role">Body text on paper</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#94A3B8"></div>
+        <div class="swatch-body">
+          <div class="swatch-name">Mist</div>
+          <div class="swatch-vals">
+            <div><span>HEX</span><span>#94A3B8</span></div>
+            <div><span>RGB</span><span>148 · 163 · 184</span></div>
+          </div>
+          <div class="swatch-role">Subtext on navy</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#CBD5E1"></div>
+        <div class="swatch-body">
+          <div class="swatch-name">Mist Light</div>
+          <div class="swatch-vals">
+            <div><span>HEX</span><span>#CBD5E1</span></div>
+            <div><span>RGB</span><span>203 · 213 · 225</span></div>
+          </div>
+          <div class="swatch-role">Body text on navy</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px">Contrast and accessibility rules</h3>
+    <p>All text pairings in this system have been verified against WCAG AA contrast requirements (4.5:1 for body text, 3:1 for large display text and UI elements). The following rules are non-negotiable.</p>
+    <table class="specs-table">
+      <tr><td>Paper on Navy</td><td>17.34:1 · passes AAA · primary display pairing</td></tr>
+      <tr><td>Gold on Navy</td><td>8.36:1 · passes AAA · accent and display text</td></tr>
+      <tr><td>Mist Light on Navy</td><td>12.21:1 · passes AAA · body text on dark</td></tr>
+      <tr><td>Mist on Navy</td><td>7.07:1 · passes AAA · subtext and captions</td></tr>
+      <tr><td>Charcoal on Paper</td><td>14.04:1 · passes AAA · body text on light</td></tr>
+      <tr><td>Steel Blue on Paper</td><td>8.24:1 · passes AAA · accent text on light</td></tr>
+      <tr><td>Steel Blue on Navy</td><td>2.10:1 · FAILS · decorative shapes only, never text</td></tr>
+      <tr><td>Gold on Paper</td><td>2.07:1 · FAILS · large decorative use only, never text</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <span class="eyebrow">07 · Typography</span>
+    <h2>Archivo and Inter.</h2>
+    <p>Two type families. Archivo for display and headlines, Inter for body and interface. JetBrains Mono is reserved for metadata, specifications, and technical accent text. No other typefaces. Both primary families are free, open source, and available on Google Fonts.</p>
+
+    <div class="type-specimen" style="margin-top:32px">
+      <div class="type-meta">Display · Archivo · 400 to 900</div>
+      <div class="specimen-big">Bridging talent<br>and opportunity.</div>
+      <p class="muted" style="font-size:13px">Archivo is a grotesque sans designed by Omnibus-Type. It carries institutional weight without stiffness, reads cleanly at display sizes, and holds its shape in embroidery, print, and low-resolution screens. The wide counters and confident terminals give it presence in decks and signage.</p>
+      <div class="type-scale">
+        <div><span class="tag">Display XL · 900</span><span style="font-family:Archivo;font-weight:900;font-size:56px;line-height:1;color:var(--paper)">Aa Bb Cc</span></div>
+        <div><span class="tag">Display L · 800</span><span style="font-family:Archivo;font-weight:800;font-size:40px;line-height:1;color:var(--paper)">Aa Bb Cc 123</span></div>
+        <div><span class="tag">Headline · 700</span><span style="font-family:Archivo;font-weight:700;font-size:24px;line-height:1;color:var(--paper)">The Cebu Arts &amp; Animation Protocol</span></div>
+        <div><span class="tag">Subhead · 600</span><span style="font-family:Archivo;font-weight:600;font-size:18px;line-height:1;color:var(--paper)">Artist Collective Enterprises</span></div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Body · Inter · 300 to 700</div>
+      <p class="specimen-body">tCAAP is a venture studio dedicated to uplifting Filipino artists and animators. We provide access to opportunities through training partnerships, arts and animation studios, event productions, and a global media services agency. Every pillar is designed with sustainability and long-term growth in mind.</p>
+      <div class="type-scale" style="margin-top:24px">
+        <div><span class="tag">Lead · 500 · 19px</span><span style="font-family:Inter;font-weight:500;font-size:19px;color:var(--paper)">Leading paragraph style</span></div>
+        <div><span class="tag">Body · 400 · 16px</span><span style="font-family:Inter;font-weight:400;font-size:16px;color:var(--paper)">Standard paragraph text</span></div>
+        <div><span class="tag">Small · 400 · 13px</span><span style="font-family:Inter;font-weight:400;font-size:13px;color:var(--paper)">Caption and footnote</span></div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Technical · JetBrains Mono · 400 to 500</div>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--mist-2);line-height:1.7;max-width:60ch">
+        FILE · tcaap_brand_kit.html<br>
+        VERSION · 1.0<br>
+        STATUS · TIER 01 FOUNDATION
+      </p>
+      <p class="muted" style="font-size:13px;margin-top:16px">Reserved for eyebrow labels, technical specifications, file names, data points, and any moment that benefits from a structural, systematic tone. Never body copy.</p>
+    </div>
+
+    <h3 style="margin-top:40px">Typographic hierarchy rules</h3>
+    <table class="specs-table">
+      <tr><td>Headlines</td><td>Archivo 800 or 900, tight tracking (−0.015 to −0.025em). Never light weights at display size.</td></tr>
+      <tr><td>Subheads</td><td>Archivo 600 or 700, default tracking. Always paired with an eyebrow label above.</td></tr>
+      <tr><td>Body</td><td>Inter 400, 1.55 to 1.65 line height, max 68 characters per line.</td></tr>
+      <tr><td>Eyebrows &amp; labels</td><td>JetBrains Mono 11 or 12px, uppercase, +0.16em letter spacing, Signal Gold on navy.</td></tr>
+      <tr><td>Numerals</td><td>Tabular figures in all data tables. Both Archivo and Inter support them.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <span class="eyebrow">08 · Usage Rules</span>
+    <h2>What the brand protects.</h2>
+    <p>Every rule here exists because the previous mark broke one. If the brand survives its first eighteen months without these violations, the identity compounds instead of eroding.</p>
+
+    <div class="rules" style="margin-top:32px">
+      <div class="rule-card do">
+        <h4>DO</h4>
+        <p>Use deep navy as the default background for investor decks, pitch material, and digital properties. The brand is built dark-mode first.</p>
+      </div>
+      <div class="rule-card dont">
+        <h4>DON'T</h4>
+        <p>Apply metallic gradients, chrome effects, or bevels to the mark. The previous CP logo used all three and aged immediately. This system is flat.</p>
+      </div>
+      <div class="rule-card do">
+        <h4>DO</h4>
+        <p>Keep the gold beacon on the top step of the staircase as the only accent inside the mark. It signals the opportunity endpoint and earns its position.</p>
+      </div>
+      <div class="rule-card dont">
+        <h4>DON'T</h4>
+        <p>Add rainbow gradients, multiple accent colors, or decorative overlays. Every added color weakens the gateway concept.</p>
+      </div>
+      <div class="rule-card do">
+        <h4>DO</h4>
+        <p>Pair the mark with substantial whitespace. Clear space is a minimum, not a target. Give the brand room to carry authority.</p>
+      </div>
+      <div class="rule-card dont">
+        <h4>DON'T</h4>
+        <p>Stretch, skew, rotate, outline, or flip the mark. The staircase ascends left to right for a reason. Mirroring it reverses the meaning from ascent to descent.</p>
+      </div>
+      <div class="rule-card do">
+        <h4>DO</h4>
+        <p>Use Steel Blue for decorative elements: dividers, shape overlays, supporting graphics on navy backgrounds.</p>
+      </div>
+      <div class="rule-card dont">
+        <h4>DON'T</h4>
+        <p>Set text in Steel Blue on Navy. The contrast ratio fails WCAG. Use Paper, Mist Light, Mist, or Gold for text on navy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap-inner">
+      <span class="eyebrow">09 · Light Mode</span>
+      <h2>For print and daylight.</h2>
+      <p style="max-width:60ch">The brand lives dark-mode first, but print collateral, letterhead, and official documents land on white or near-white stock. This section verifies the identity holds on Paper.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px">
+        <div>
+          <div style="background:#FAFAF7;border:1px solid #e5e5e0;padding:48px;border-radius:2px;display:flex;justify-content:center;align-items:center;min-height:260px">
+            <svg viewBox="0 0 240 240" width="200" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#0A1628"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#0A1628"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+            </svg>
+          </div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748B;margin-top:12px;text-align:center;letter-spacing:0.12em;text-transform:uppercase">Navy on paper · primary print</p>
+        </div>
+        <div>
+          <div style="background:#FAFAF7;border:1px solid #e5e5e0;padding:40px;border-radius:2px;min-height:260px">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+              <svg viewBox="0 0 240 240" width="44" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 42 198 L 42 114 C 42 46, 198 46, 198 114 L 198 198 L 168 198 L 168 114 C 168 86, 72 86, 72 114 L 72 198 Z" fill="#0A1628"/>
+          <path d="M 78 198 L 78 180 L 96 180 L 96 162 L 114 162 L 114 144 L 132 144 L 132 126 L 150 126 L 150 108 L 168 108 L 168 198 Z" fill="#0A1628"/>
+          <rect x="150" y="98" width="18" height="10" fill="#E8A317"/>
+              </svg>
+              <div>
+                <h3 style="font-family:Archivo;font-weight:900;font-size:26px;color:#0A1628;margin:0;letter-spacing:-0.02em;line-height:1">tCAAP</h3>
+                <p style="font-family:Inter;font-size:9px;color:#2B4C7E;letter-spacing:0.1em;text-transform:uppercase;margin:4px 0 0;font-weight:500">The Cebu Arts &amp; Animation Protocol</p>
+              </div>
+            </div>
+            <p style="font-family:Inter;font-size:13px;color:#475569;line-height:1.6;margin:0">A venture studio building Cebu into the Philippines' arts and animation capital. Bridging local creative talent to global opportunity through a full ecosystem of education, enterprise, events, and original content.</p>
+            <div style="margin-top:24px;padding-top:16px;border-top:1px solid #e5e5e0;font-family:'JetBrains Mono',monospace;font-size:10px;color:#64748B;letter-spacing:0.1em;text-transform:uppercase">Letterhead preview</div>
+          </div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748B;margin-top:12px;text-align:center;letter-spacing:0.12em;text-transform:uppercase">Letterhead composition</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div>tCAAP · Brand Identity Kit · Tier 1 · v1.0</div>
+    <div>Foundation Build</div>
+  </div>
+</div>
+
+</body>
+</html>
